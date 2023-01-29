@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="utf-8">
+		<link type="text/css" rel="stylesheet" href="../additional_files/css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="../additional_files/css/sh_typical.min.css">
+		<title>2023.1.29 Day 1</title>
+		<script type="text/x-mathjax-config">MathJax.Hub.Config({tex2jax: {inlineMath: [['$', '$']], displayMath: [['$$', '$$']]}});</script>
+		<script src="../additional_files/js/sh_main.min.js"></script>
+		<script src="../additional_files/MathJax-master/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	</head>
+	<body>
+		<p>2023.1.29 Day 1</p>
+		<h2>上午讲题</h2>
+		<h3>ST 表</h3>
+		<p></p><strong>1</strong>&nbsp;<a href="https://codeforces.com/problemset/problem/713/D">CF 713 D</a><br>
+		<strong>做法简述</strong>&nbsp;二维 ST 表 + 二分答案。</p>
+		<strong>2</strong>&nbsp;<a href="http://120.27.222.204:12243/problem/1589">SOJ 1589</a>
+		<strong>题目描述</strong>&nbsp;小 T 刚学会 st 表。<br>
+		小 T 想用 st 表去维护一个长为 $n$ 且值域在 $[1,V]$ 的正整数序列 $a$ 的区间最小值和最大值。但他突然发现有 $m$ 次修改，每次修改会给出两个整数 $x,v$，然后将 $a_x$ 赋值为 $v$。<br>
+		小 T 并不会用 st 表支持修改，所以他只好退而求其次，如果能维护出每次修改后，st 表上每个区间的极差的平方和，那么就算完成任务。<br>
+		换句话说，记<br>
+		$$f(l,r)=(\max\{a_l,a_{l+1},…,a_r\}−min\{a_l,a_{l+1},…,a_r\})^2$$<br>
+		你需要在每次修改后求出<br>
+		$$\sum_{l=1}^n\sum_{r=l}^n[r−l+1=2k]f(l,r)$$<br>
+		式子中 $[r−l+1=2k]$ 定义为若存在某个非负整数 $k$，满足 $r−l+1=2k$，那么它的值为 $1$，否则为 $0$。<br>
+		<strong>数据范围</strong>&nbsp;$1\leq n,m\leq5\times10^5$，$1\leq V\leq2\times10^5$，$1\leq a_i,v\leq V$，$1\leq x\leq n$，保证 $a_i,v$ 在 $[1,V]$ 中独立均匀随机，$x$ 在 $[1,n]$ 中独立均匀随机。
+	</body>
+</html>
